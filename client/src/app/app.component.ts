@@ -8,12 +8,14 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AppComponent implements OnInit {
   title = 'Mechcables';
+  products: any[];
 
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
-    this.http.get('https://localhost:5001/api/products?pageSize=2&pageIndex=0').subscribe((response: any) =>  {
-      console.log(response);
+    this.http.get('https://localhost:5001/api/products?pageSize=50').subscribe((response: any) =>  {
+      this.products = response.data;
+      console.log(this.products);
     }, error => {
       console.log(error);
     });
