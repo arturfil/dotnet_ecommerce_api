@@ -22,6 +22,9 @@ export class ShopService {
     // tslint:disable-next-line: curly
     if (shopParams.typeId !== 0)
       params = params.append('typeId', shopParams.typeId.toString());
+    // tslint:disable-next-line: curly
+    if (shopParams.search)
+      params = params.append('search', shopParams.search);
 
     params = params.append('sort', shopParams.sort);
     params = params.append('pageIndex', shopParams.pageNumber.toString());
