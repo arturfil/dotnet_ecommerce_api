@@ -53,9 +53,9 @@
                     <td class="align-middle"> <strong>{{item.price | currency }}</strong></td>
                     <td class="align-middle">
                       <div class="d-flex align-items-center">
-                        <i class="mr-2 fa fa-minus-circle text-warning" style="cursor: pointer; font-size: 2em;"></i>
-                        <span class="font-weight-bold" style="font-size: 1.5em;">2</span>
-                        <i class="mx-2 fa fa-plus-circle text-warning" style="cursor: pointer; font-size: 2em;"></i>
+                        <i (click)="drecrementItemQuantity(item)" class="mr-2 fa fa-minus-circle text-warning" style="cursor: pointer; font-size: 2em;"></i>
+                        <span class="font-weight-bold" style="font-size: 1.5em;">{{item.quantity}}</span>
+                        <i (click)="incrementItemQuantity(item)" class="mx-2 fa fa-plus-circle text-warning" style="cursor: pointer; font-size: 2em;"></i>
                       </div>
                     </td>
                     <td class="align-middle">
@@ -63,7 +63,7 @@
                     </td>
                     <td class="align-middle text-center">
                       <a class="text-danger">
-                        <i class="fa fa-trash" style="font-size: 2em;"></i>
+                        <i (click)="removeBasketItem(item)" class="fa fa-trash" style="font-size: 2em; cursor: pointer;"></i>
                       </a>
                     </td>
                   </tr>
@@ -71,6 +71,14 @@
 
               </table>
             </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6 offset-6">
+            <app-order-totals></app-order-totals>
+            <a routerLink="/checkout" class="btn btn-outline-primary py-2 btn-block">
+              Proceed to checkout
+            </a>
           </div>
         </div>
       </div>

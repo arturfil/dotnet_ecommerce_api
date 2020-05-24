@@ -7,10 +7,10 @@
       <h3>{{product.name}}</h3>
       <p style="font-size: 2em;">{{product.price | currency}}</p>
       <div class="d-flex justify-content-start align-items-center">
-        <i class="mr-2 fa fa-minus-circle text-warning" style="cursor: pointer; font-size: 2em;"></i>
-        <span class="font-weight-bold" style="font-size: 1.5em;">2</span>
-        <i class="mx-2 fa fa-plus-circle text-warning" style="cursor: pointer; font-size: 2em;"></i>
-        <button class="ml-4 btn btn-outline-secondary btn-lg">Add to Cart</button>
+        <i (click)="decrementQuantity()" class="mr-2 fa fa-minus-circle text-warning" style="cursor: pointer; font-size: 2em;"></i>
+        <span class="font-weight-bold" style="font-size: 1.5em;">{{quantity}}</span>
+        <i (click)="incrementQuantity()" class="mx-2 fa fa-plus-circle text-warning" style="cursor: pointer; font-size: 2em;"></i>
+        <button (click)="addItemToBasket()" class="ml-4 btn btn-outline-primary btn-lg">Add to Cart</button>
       </div>
     </div>
     <div class="row mt-5">
