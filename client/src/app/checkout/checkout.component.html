@@ -2,17 +2,17 @@
   <div class="row">
     <div class="col-8">
       <app-stepper [linearModeSelected]="false" #appStepper>
-        <cdk-step [label]="'Address'">
+        <cdk-step [label]="'Address'" [completed]="(checkoutForm.get('addressForm')).valid">
           <app-checout-address [checkoutForm]="checkoutForm"></app-checout-address>
         </cdk-step>
-        <cdk-step [label]="'Delivery'">
+        <cdk-step [label]="'Delivery'" [completed]="(checkoutForm.get('deliveryForm')).valid">
           <app-checout-delivery [checkoutForm]="checkoutForm"></app-checout-delivery>
         </cdk-step>
         <cdk-step [label]="'Review'">
           <app-checout-review></app-checout-review>
         </cdk-step>
         <cdk-step [label]="'Payment'">
-          <app-checout-payment></app-checout-payment>
+          <app-checout-payment [checkoutForm]="checkoutForm"></app-checout-payment>
         </cdk-step>
       </app-stepper>
     </div>

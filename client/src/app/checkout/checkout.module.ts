@@ -11,15 +11,16 @@ import { ChecoutReviewComponent } from './checout-review/checout-review.componen
 import { ChecoutPaymentComponent } from './checout-payment/checout-payment.component';
 import { ChecoutSuccessComponent } from './checout-success/checout-success.component';
 
-
-
 @NgModule({
-  declarations: [CheckoutComponent, ChecoutAddressComponent, ChecoutDeliveryComponent, ChecoutReviewComponent, ChecoutPaymentComponent, ChecoutSuccessComponent],
-  imports: [
-    CommonModule,
-    CheckoutRoutingModule,
-    SharedModule
+  declarations: [
+    CheckoutComponent,
+    ChecoutAddressComponent,
+    ChecoutDeliveryComponent,
+    ChecoutReviewComponent,
+    ChecoutPaymentComponent,
+    ChecoutSuccessComponent,
   ],
-  exports: [RouterModule]
+  imports: [CommonModule, CheckoutRoutingModule, SharedModule],
+  exports: [RouterModule],
 })
-export class CheckoutModule { }
+export class CheckoutModule {}
