@@ -44,6 +44,6 @@ export class ChecoutPaymentComponent implements OnInit {
       basketId: basket.id,
       deliveryMethodId: + this.checkoutForm.get('deliveryForm').get('deliveryMethod').value,
       shipToAddress: this.checkoutForm.get('addressForm').value
-    }
+    };
   }
 }
