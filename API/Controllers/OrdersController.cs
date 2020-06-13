@@ -38,7 +38,7 @@ namespace API.Controllers
       return Ok(_mapper.Map<IReadOnlyList<Order>, IReadOnlyList<OrderToReturnDto>>(orders));
     }
 
-    [HttpGet("id")]
+    [HttpGet("{id}")]
     public async Task<ActionResult<OrderToReturnDto>> GetOrderByIdForUser(int id) {
       var email = HttpContext.User.RetrieveEmailFromPrincipal();
       var order = await _orderService.GetOrderByIdAsync(id, email);
