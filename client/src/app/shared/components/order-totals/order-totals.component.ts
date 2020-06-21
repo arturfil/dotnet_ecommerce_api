@@ -1,7 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Observable } from 'rxjs';
-import { IBasketTotals } from '../../models/basket';
-import { BasketService } from 'src/app/basket/basket.service';
 
 @Component({
   selector: 'app-order-totals',
