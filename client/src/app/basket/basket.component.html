@@ -1,9 +1,9 @@
 <div class="container mt-5">
-  <div *ngIf="(basket$ | async) === null">
+  <div *ngIf="(basketTotals$ | async) === null">
     <h4>There are no items in your shopping cart</h4>
   </div>
   
-  <div *ngIf="basket$ | async">
+  <div *ngIf="basketTotals$ | async">
     <div class="pb-5">
       <div class="container">
         <div class="row">
@@ -19,10 +19,10 @@
         <div class="row">
           <div class="col-6 offset-6">
             <app-order-totals>
-              *ngIf="(basket$ | async)"
-              [subtotal]="(basket$ | async).subtotal"
-              [shippingPrice]="(basket$ | async).shipping"
-              [total]="(basket$ | async).total">
+              *ngIf="(basketTotals$ | async)"
+              [shippingPrice]="(basketTotals$ | async).shipping"
+              [subtotal]="(basketTotals$ | async).subtotal"
+              [total]="(basketTotals$ | async).total">
             </app-order-totals>
             <a routerLink="/checkout" class="btn btn-outline-primary py-2 btn-block">
               Proceed to checkout
