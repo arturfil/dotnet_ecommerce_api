@@ -41,7 +41,7 @@ namespace Infrastructure.Services
       }
       var deliveryMethod = await _unitOfWork.Repository<DeliveryMethod>().GetByIdAsync(deliveryMethodId);
       var subtotal = items.Sum(items => items.Price * items.Quantity);
-      var spec = new OrderByPaymentIntentIdWithItemsSpecification(basket.PaymentIntentId);
+      var spec = new OrderByPaymentIntentIdSpecification(basket.PaymentIntentId);
       var existingOrder = await _unitOfWork.Repository<Order>().GetEntitiyWithSpec(spec);
 
       if (existingOrder != null)

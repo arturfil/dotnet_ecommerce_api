@@ -42,8 +42,7 @@ import { RouterModule } from '@angular/router';
     BsDropdownModule,
     StepperComponent,
     CdkStepperModule,
-    BasketSummaryComponent,
-    RouterModule
+    BasketSummaryComponent
   ]
 })
 

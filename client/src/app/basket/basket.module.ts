@@ -11,7 +11,6 @@ import { RouterModule } from '@angular/router';
   declarations: [BasketComponent],
   imports: [
     CommonModule,
-    RouterModule,
     BasketRoutingModule,
     SharedModule
   ]

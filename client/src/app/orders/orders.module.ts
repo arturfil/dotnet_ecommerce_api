@@ -15,10 +15,8 @@ import { OrdersComponent } from './orders.component';
   ],
   imports: [
     CommonModule,
-    RouterModule,
     OrdersRoutingModule,
     SharedModule
-  ],
-  exports: [RouterModule],
+  ]
 })
 export class OrdersModule { }
