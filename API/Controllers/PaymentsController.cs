@@ -43,7 +43,7 @@ namespace API.Controllers
 
       switch (stripeEvent.Type)
       {
-        case "payment_intent.succeded":
+        case "payment_intent.succeeded":
           intent = (PaymentIntent)stripeEvent.Data.Object;
           _logger.LogInformation("Payment Succeeded: ", intent.Id);
           order = await _paymentService.UpdateOrderPaymentSucceeded(intent.Id);
