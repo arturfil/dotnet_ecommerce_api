@@ -19,7 +19,7 @@ namespace API.Helpers
         CreateMap<AddressDto, Core.Entities.OrderAggregate.Address>(); // this one and the Address -> Address Dto are not the same because this.Address referes to a prop in another Class
         CreateMap<Order, OrderToReturnDto>()
           .ForMember(d => d.DeliveryMethod, o => o.MapFrom(s => s.DeliveryMethod.ShortName))
-          .ForMember(d => d.DeliveryMethod, o => o.MapFrom(s => s.DeliveryMethod.Price));
+          .ForMember(d => d.ShippingPrice, o => o.MapFrom(s => s.DeliveryMethod.Price));
         CreateMap<OrderItem, OrderItemDto>()
           .ForMember(d => d.ProductId, o => o.MapFrom(s => s.ItemOrdered.ProductItemId))
           .ForMember(d => d.ProductName, o => o.MapFrom(s => s.ItemOrdered.ProductName))
