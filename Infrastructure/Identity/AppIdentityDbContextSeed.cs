@@ -22,7 +22,7 @@ namespace Infrastructure.Identity
                         Zipcode = "90210"
                     }
                 };
-                await userManager.CreateAsync(user, "Pa$$w0rd");
+                await userManager.CreateAsync(user, "B0bTe$t123");
             }
         }
     }

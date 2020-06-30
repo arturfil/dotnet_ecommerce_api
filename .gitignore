@@ -1,6 +1,9 @@
 obj
 bin
 appsettings.json
+settings.json
 *.db
 .DS_Store
 *.rdb
+publish
+wwwroot
