@@ -18,6 +18,7 @@ namespace API.Errors
         return statusCode switch {
             400 => "A bad request, you have made",
             401 => "Authorized, you are not",
+            403 => "Forbbiden from that action, you are",
             404 => "Resource found, it was not",
             500 => "Errors are the path to the dark side. Errors lead to anger. Anger leads to hate. Heate leads to career change",
             _ => null

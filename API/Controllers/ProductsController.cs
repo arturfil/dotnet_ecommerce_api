@@ -10,6 +10,7 @@ using AutoMapper;
 using API.Errors;
 using Microsoft.AspNetCore.Http;
 using API.Helpers;
+using Microsoft.AspNetCore.Authorization;
 
 namespace API.Controllers
 {
@@ -70,6 +71,7 @@ namespace API.Controllers
 
     // Post/Product
     [HttpPost]
+    [Authorize(Roles = "Admin")]
     public async Task<ActionResult<Product>> CreateProduct(ProductCreateDto productToCreate) {
       var product = _mapper.Map<ProductCreateDto, Product>(productToCreate);
       product.PictureUrl = "images/products/placeholder.png";
@@ -81,6 +83,7 @@ namespace API.Controllers
 
     // Put/Product/:id
     [HttpPut("{id}")]
+    [Authorize(Roles = "Admin")]
     public async Task<ActionResult<Product>> UpdateProduct(int id, ProductCreateDto productToUpdate) {
       var product = await _unitOfWork.Repository<Product>().GetByIdAsync(id);
       _mapper.Map(productToUpdate, product);
@@ -92,6 +95,7 @@ namespace API.Controllers
 
     // Delete/Product/:id
     [HttpDelete("{id}")]
+    [Authorize(Roles = "Admin")]
     public async Task<ActionResult> DeleteProduct(int id) {
       var product = await _unitOfWork.Repository<Product>().GetByIdAsync(id);
       _unitOfWork.Repository<Product>().Delete(product);
