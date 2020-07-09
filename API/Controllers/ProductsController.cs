@@ -86,6 +86,7 @@ namespace API.Controllers
     [Authorize(Roles = "Admin")]
     public async Task<ActionResult<Product>> UpdateProduct(int id, ProductCreateDto productToUpdate) {
       var product = await _unitOfWork.Repository<Product>().GetByIdAsync(id);
+      productToUpdate.PictureUrl = product.PictureUrl;
       _mapper.Map(productToUpdate, product);
       _unitOfWork.Repository<Product>().Update(product);
       var result = await _unitOfWork.Complete();
