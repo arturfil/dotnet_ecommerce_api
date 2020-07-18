@@ -23,9 +23,7 @@ export class EditProductComponent implements OnInit {
     private shopService: ShopService,
     private route: ActivatedRoute,
     private router: Router
-  ) {
-    this.product = new ProductFormValues();
-  }
+  ) {}
 
   ngOnInit(): void {
     const brands = this.getBrands();
@@ -47,8 +45,8 @@ export class EditProductComponent implements OnInit {
     this.shopService.getProduct(+this.route.snapshot.paramMap.get('id')).subscribe((response: any) => {
       const productBrandId = this.brands && this.brands.find(x => x.name === response.productBrand).id;
       const productTypeId = this.types && this.types.find(x => x.name === response.productType).id;
-      this.productFromValues = {...response, productBrandId, productTypeId};
       this.product = response;
+      this.productFromValues = {...response, productBrandId, productTypeId};
     });
   }
 

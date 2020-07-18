@@ -14,6 +14,7 @@ import { BasketSummaryComponent } from './components/basket-summary/basket-summa
 import { RouterModule } from '@angular/router';
 import {CurrencyMaskModule} from 'ng2-currency-mask';
 import { NgxGalleryModule } from '@kolkov/ngx-gallery';
+import { TabsModule } from 'ngx-bootstrap/tabs';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { NgxGalleryModule } from '@kolkov/ngx-gallery';
     PaginationModule.forRoot(),
     CarouselModule.forRoot(),
     BsDropdownModule.forRoot(),
+    TabsModule.forRoot(),
     ReactiveFormsModule,
     FormsModule,
     CdkStepperModule,
@@ -50,7 +52,8 @@ import { NgxGalleryModule } from '@kolkov/ngx-gallery';
     CdkStepperModule,
     BasketSummaryComponent,
     CurrencyMaskModule,
-    NgxGalleryModule
+    NgxGalleryModule,
+    TabsModule
   ]
 })
 
