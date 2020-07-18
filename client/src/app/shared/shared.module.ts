@@ -13,6 +13,7 @@ import { StepperComponent } from './components/stepper/stepper.component';
 import { BasketSummaryComponent } from './components/basket-summary/basket-summary.component';
 import { RouterModule } from '@angular/router';
 import {CurrencyMaskModule} from 'ng2-currency-mask';
+import { NgxGalleryModule } from '@kolkov/ngx-gallery';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import {CurrencyMaskModule} from 'ng2-currency-mask';
     FormsModule,
     CdkStepperModule,
     RouterModule,
-    CurrencyMaskModule
+    CurrencyMaskModule,
+    NgxGalleryModule
   ],
   exports: [
     PaginationModule,
@@ -47,7 +49,8 @@ import {CurrencyMaskModule} from 'ng2-currency-mask';
     StepperComponent,
     CdkStepperModule,
     BasketSummaryComponent,
-    CurrencyMaskModule
+    CurrencyMaskModule,
+    NgxGalleryModule
   ]
 })
 

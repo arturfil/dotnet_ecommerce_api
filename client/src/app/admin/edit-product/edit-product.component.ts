@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductFormValues } from 'src/app/shared/models/product';
+import { ProductFormValues, IProduct } from 'src/app/shared/models/product';
 import { IType } from 'src/app/shared/models/productType';
 import { IBrand } from 'src/app/shared/models/brand';
 import { AdminService } from '../admin.service';
@@ -13,7 +13,8 @@ import { forkJoin } from 'rxjs';
   styleUrls: ['./edit-product.component.scss']
 })
 export class EditProductComponent implements OnInit {
-  product: ProductFormValues;
+  product: IProduct;
+  productFromValues: ProductFormValues;
   brands: IBrand[];
   types: IType[];
 
@@ -42,15 +43,12 @@ export class EditProductComponent implements OnInit {
     });
   }
 
-  updatePrice(event: any) {
-    this.product.price = event;
-  }
-
   loadProduct() {
     this.shopService.getProduct(+this.route.snapshot.paramMap.get('id')).subscribe((response: any) => {
       const productBrandId = this.brands && this.brands.find(x => x.name === response.productBrand).id;
       const productTypeId = this.types && this.types.find(x => x.name === response.productType).id;
-      this.product = {...response, productBrandId, productTypeId};
+      this.productFromValues = {...response, productBrandId, productTypeId};
+      this.product = response;
     });
   }
 
@@ -60,20 +58,6 @@ export class EditProductComponent implements OnInit {
 
   getTypes() {
     return this.shopService.getTypes();
-  }
-
-  onSubmit(product: ProductFormValues) {
-    if (this.route.snapshot.url[0].path === 'edit') {
-      const updatedProduct = {...this.product, ...product, price: +product.price};
-      this.adminService.updateProduct(updatedProduct, +this.route.snapshot.paramMap.get('id')).subscribe((response: any) => {
-        this.router.navigate(['/admin']);
-      });
-    } else {
-      const newProduct = {...product, price: +product.price};
-      this.adminService.createProduct(newProduct).subscribe((response: any) => {
-        this.router.navigate(['/admin']);
-      });
-    }
   }
 
 }
