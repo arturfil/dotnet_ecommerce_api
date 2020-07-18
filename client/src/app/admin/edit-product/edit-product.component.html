@@ -6,7 +6,7 @@
           <tabset class="product-tabset">
             <tab heading="Edit Product">
               <div class="col-lg-8">
-                <app-edit-product-form></app-edit-product-form>
+                <app-edit-product-form [product]="productFormValues" [brands]="brands" [types]="types"></app-edit-product-form>
               </div>
             </tab>
             <tab heading="Edit Photos">

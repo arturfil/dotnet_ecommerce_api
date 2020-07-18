@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductFormValues } from 'src/app/shared/models/product';
+import { ProductFormValues, IProduct } from 'src/app/shared/models/product';
 import { IType } from 'src/app/shared/models/productType';
 import { IBrand } from 'src/app/shared/models/brand';
 import { AdminService } from '../admin.service';
@@ -13,7 +13,8 @@ import { forkJoin } from 'rxjs';
   styleUrls: ['./edit-product.component.scss']
 })
 export class EditProductComponent implements OnInit {
-  product: ProductFormValues;
+  product: IProduct;
+  productFormValues: ProductFormValues;
   brands: IBrand[];
   types: IType[];
 
@@ -23,7 +24,7 @@ export class EditProductComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router
   ) {
-    this.product = new ProductFormValues();
+    this.productFormValues = new ProductFormValues();
   }
 
   ngOnInit(): void {
@@ -51,7 +52,7 @@ export class EditProductComponent implements OnInit {
       const productBrandId = this.brands && this.brands.find(x => x.name === response.productBrand).id;
       const productTypeId = this.types && this.types.find(x => x.name === response.productType).id;
       this.product = response;
-      this.product = {...response, productBrandId, productTypeId};
+      this.productFormValues = {...response, productBrandId, productTypeId};
     });
   }
 
