@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { IProduct } from 'src/app/shared/models/product';
 
 @Component({
   selector: 'app-edit-product-photos',
@@ -6,10 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./edit-product-photos.component.scss']
 })
 export class EditProductPhotosComponent implements OnInit {
+  @Input() product: IProduct;
+  addPhotoMode = false
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  addPhotoModeToggle() {
+    this.addPhotoMode != this.addPhotoMode;
   }
 
 }

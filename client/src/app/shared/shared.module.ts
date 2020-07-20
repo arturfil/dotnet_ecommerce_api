@@ -15,6 +15,9 @@ import { RouterModule } from '@angular/router';
 import {CurrencyMaskModule} from 'ng2-currency-mask';
 import { NgxGalleryModule } from '@kolkov/ngx-gallery';
 import { TabsModule } from 'ngx-bootstrap/tabs';
+import { PhotoWidgetComponent } from './components/photo-widget/photo-widget.component';
+import { NgxDropzoneModule } from 'ngx-dropzone'
+import { ImageCropperModule } from 'ngx-image-cropper';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,8 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
     OrderTotalsComponent,
     TextInputComponent,
     StepperComponent,
-    BasketSummaryComponent
+    BasketSummaryComponent,
+    PhotoWidgetComponent
   ],
   imports: [
     CommonModule,
@@ -36,7 +40,9 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
     CdkStepperModule,
     RouterModule,
     CurrencyMaskModule,
-    NgxGalleryModule
+    NgxGalleryModule,
+    NgxDropzoneModule,
+    ImageCropperModule
   ],
   exports: [
     PaginationModule,
@@ -53,7 +59,10 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
     BasketSummaryComponent,
     CurrencyMaskModule,
     NgxGalleryModule,
-    TabsModule
+    TabsModule,
+    NgxDropzoneModule,
+    ImageCropperModule,
+    PhotoWidgetComponent
   ]
 })
 
