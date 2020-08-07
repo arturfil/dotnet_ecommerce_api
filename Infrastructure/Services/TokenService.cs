@@ -16,9 +16,9 @@ namespace Infrastructure.Services
   public class TokenService : ITokenService
   {
     private readonly IConfiguration _config;
+    private readonly UserManager<AppUser> _userManager;
     private readonly SymmetricSecurityKey _key;
     // constructor
-    private readonly UserManager<AppUser> _userManager;
     public TokenService(IConfiguration config, UserManager<AppUser> userManager)
     {
       this._userManager = userManager;
