@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Data.Migrations
 {
     [DbContext(typeof(StoreContext))]
-    [Migration("20200807033301_MySQL Initial")]
+    [Migration("20200807070713_MySQL Initial")]
     partial class MySQLInitial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

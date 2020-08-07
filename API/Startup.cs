@@ -25,15 +25,14 @@ namespace API
 
     public void ConfigureDevelopmentServices(IServiceCollection services) {
       services.AddDbContext<StoreContext>(x => x.UseSqlite(_configuration.GetConnectionString("DefaultConnection")));
-      services.AddDbContext<AppIdentityDbContext>(x => {
-        x.UseSqlite(_configuration.GetConnectionString("IdentityConnection"));
+      services.AddDbContext<AppIdentityDbContext>(x => {x.UseSqlite(_configuration.GetConnectionString("IdentityConnection"));
       });
       ConfigureServices(services);
     }
 
     public void ConfigureProductionServices(IServiceCollection services) {
       services.AddDbContext<StoreContext>(x => x.UseMySql(_configuration.GetConnectionString("DefaultConnection")));
-      services.AddDbContext<AppIdentityDbContext>(x => x.UseMySql(_configuration.GetConnectionString("IdentityConnection")));
+      services.AddDbContext<AppIdentityDbContext>(x => {x.UseMySql(_configuration.GetConnectionString("IdentityConnection"));});
       ConfigureServices(services);
     }
 
